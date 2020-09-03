@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     //qDebug()<<"1";
 
-    for(int i =1;i<=100;i++)
+    for(int i =0;i<=99;i++)
     {
         int a[80]={0};
         Node *s = new Node(0,false,a);
@@ -53,10 +53,10 @@ this ->type = type;
 void MainWindow::new_game(Node *head)
 {
     p = head;
-    //330hua
-    for(int i = 1;i<=70;i++)
+    //350hua
+    for(int i = 0;i<70;i++)
     {
-        for(int K=1;K<=10;K++)
+        for(int K=0;K<10;K++)
         {
             qsrand(QTime(0,0,0).secsTo(QTime::currentTime())+K*10000+i);
             p->data[K][0]=qrand()%2+1;
@@ -66,11 +66,11 @@ void MainWindow::new_game(Node *head)
         }
         p=p->N;
     }
-    //330bai
-    for(int i = 71;i<=100;i++)
+    //350bai
+    for(int i = 70;i<100;i++)
     {
         p->type = true;
-        for(int K=1;K<=10;K++)
+        for(int K=0;K<10;K++)
         {
            //qDebug()<<"1";
             p->data[K][0] = 3;
@@ -80,12 +80,12 @@ void MainWindow::new_game(Node *head)
         }
         p=p->N;
     }
-    //330hei
+    //300hei
     p=head;
-    for(int i = 1;i<=100;i++)
+    for(int i = 0;i<100;i++)
     {
 
-        for(int K=1;K<=10;K++)
+        for(int K=0;K<10;K++)
         {
 
 
@@ -111,9 +111,9 @@ void MainWindow::grow(Node *head)
 {
     *p = *head;
     //grow shuiji
-    for(int i = 1;i<=100;i++)
+    for(int i = 0;i<100;i++)
     {
-        for(int K=1;K<=10;K++)
+        for(int K=0;K<10;K++)
         {
             qsrand(QTime(0,0,0).secsTo(QTime::currentTime())+K*10000+i);
             int test =qrand()%13;
@@ -131,9 +131,9 @@ QString MainWindow::goout(Node *head)//chu lan
     int numpig = 0;
     *p = *head;
     //grow shuiji
-    for(int i = 1;i<=100;i++)
+    for(int i = 0;i<100;i++)
     {
-        for(int K=1;K<=10;K++)
+        for(int K=0;K<10;K++)
         {
             if(p->data[K][1]>=750||p->data[K][2]>360)//一个月30天
             {
@@ -180,11 +180,11 @@ QString MainWindow::findpig(int findmode)
     {
         int a = 0,sum_bai =0,sum_hua=0,sum_hei=0;
           ;      //一会记得从UI传入数据
-        for(int i = 1;i< a;i++)
+        for(int i = 0;i< a-1;i++)
         {
             p=p->N;
         }
-        for(int i =1;i<=10;i++)
+        for(int i =0;i<10;i++)
         {
         if(p->data[i][0] == 1)
         {
@@ -205,7 +205,7 @@ QString MainWindow::findpig(int findmode)
     {
         int numjuan = 0,weigt =0,type=0,day=0,numpig = 0;
           ;      //一会记得从UI传入数据
-        for(int i = 1;i< numjuan;i++)
+        for(int i = 0;i< numjuan-1;i++)
         {
             p=p->N;
         }
@@ -220,10 +220,10 @@ QString MainWindow::findpig(int findmode)
         //时间分为不足100天，100·200，200·300，300·400
         //种类就三种呗
         int weigh[4]={0},day[4]={0},type[5]={0};
-        for(int i = 1;i<= 100;i++)
+        for(int i = 0;i< 100;i++)
         {
             p=p->N;
-            for(int k=1;k<=10;k++)
+            for(int k=0;k<10;k++)
             {
                 type[p->data[k][0]]++;
                 weigh[std::min(p->data[k][1]/500,3)]++;
@@ -251,9 +251,9 @@ void MainWindow::savefile_zhuangtai(QString a)
         QMessageBox::critical(this,"严重错误","文件打开失败，信息未写入，请与开发者联系","确认");
         return;
     }
-    for(int i = 1;i<=100;i++)
+    for(int i = 0;i<100;i++)
     {
-        for(int k = 1;k<=10;k++)
+        for(int k = 0;k<10;k++)
         {
 
             QTextStream out(&file);
