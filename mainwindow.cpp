@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     {
         int a[80]={0};
         Node *s = new Node(0,false,a);
-        if(head == NULL || i == 1)
+        if(head == NULL || i == 0)
         {
         head = s;
         p = s;
@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
          p->N = s;
          p = s;
         }
-        if(tail == NULL || i == 100)
+        if(tail == NULL || i == 99)
         {
         tail = s;
         p = s;
